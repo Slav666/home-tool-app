@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import CustomLabel from "@/components/Label";
 import Button from "@/components/Button";
 
 const RegisterForm: React.FC = () => {
@@ -33,12 +34,7 @@ const RegisterForm: React.FC = () => {
         {({ isValid }) => (
           <Form>
             <div className="mb-4">
-              <label
-                htmlFor="username"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Username
-              </label>
+              <CustomLabel htmlFor="username">Username</CustomLabel>
               <Field
                 type="text"
                 id="username"
@@ -53,12 +49,7 @@ const RegisterForm: React.FC = () => {
               />
             </div>
             <div className="mb-4">
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Email address
-              </label>
+              <CustomLabel htmlFor="email">Email address</CustomLabel>
               <Field
                 type="email"
                 id="email"
@@ -73,12 +64,7 @@ const RegisterForm: React.FC = () => {
               />
             </div>
             <div className="mb-4">
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Password
-              </label>
+              <CustomLabel htmlFor="password">Password</CustomLabel>
               <Field
                 type="password"
                 id="password"
