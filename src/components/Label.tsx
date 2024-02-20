@@ -1,4 +1,6 @@
-const CustomLabel: React.FC<{ htmlFor: string; children: string }> = ({
+import React, { ReactNode } from "react";
+
+const CustomLabel: React.FC<{ htmlFor: string; children: ReactNode }> = ({
   htmlFor,
   children,
 }) => {

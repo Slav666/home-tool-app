@@ -2,6 +2,8 @@
 "use client";
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import CustomLabel from "@/components/Label";
+import Button from "@/components/Button";
 
 const LoginForm: React.FC = () => {
   return (
@@ -26,12 +28,7 @@ const LoginForm: React.FC = () => {
       >
         <Form>
           <div className="mb-4">
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Email address
-            </label>
+            <CustomLabel htmlFor="email">Email address</CustomLabel>
             <Field
               type="email"
               id="email"
@@ -46,12 +43,7 @@ const LoginForm: React.FC = () => {
             />
           </div>
           <div className="mb-4">
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Password
-            </label>
+            <CustomLabel htmlFor="password">Password</CustomLabel>
             <Field
               type="password"
               id="password"
@@ -65,12 +57,7 @@ const LoginForm: React.FC = () => {
               className="text-red-500 mt-1"
             />
           </div>
-          <button
-            type="submit"
-            className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-          >
-            Login
-          </button>
+          <Button type="submit">Login</Button>
         </Form>
       </Formik>
     </div>

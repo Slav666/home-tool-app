@@ -1,10 +1,18 @@
+import React, { ReactNode } from "react";
+
 const Button: React.FC<{
   type: "button" | "submit" | "reset";
   disabled?: boolean;
-  children?: any;
+  children?: ReactNode;
   color?: "primary" | "secondary";
   size?: "small" | "medium" | "large";
-}> = ({ type, disabled = false, color = "primary", size = "medium", children }) => {
+}> = ({
+  type,
+  disabled = false,
+  color = "primary",
+  size = "medium",
+  children,
+}) => {
   let buttonSizeClass = "py-2 px-4";
 
   if (size === "small") {
