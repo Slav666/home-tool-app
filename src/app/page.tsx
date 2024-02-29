@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Button from "@/components/Button";
+import ToolList from "@/components/ToolList";
 
 const LandingPage: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const LandingPage: React.FC = () => {
           </Button>
         </Link>
       </div>
+      <ToolList />
     </div>
   );
 };

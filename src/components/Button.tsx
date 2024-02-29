@@ -25,13 +25,13 @@ const Button: React.FC<{
     <button
       type={type}
       disabled={disabled}
-      className={`w-full py-2 px-4 rounded-md focus:outline-none ${
+      className={`w-full rounded-md focus:outline-none ${
         disabled
           ? "bg-gray-400 cursor-not-allowed"
           : color === "primary"
           ? "bg-indigo-600 hover:bg-indigo-700"
           : "bg-gray-500 hover:bg-gray-600"
-      } text-white`}
+      } text-white ${buttonSizeClass}`}
     >
       {children}
     </button>
