@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Button from "@/components/Button";
-import ToolList from "@/components/ToolList";
+
 
 const LandingPage: React.FC = () => {
+  
+
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <h1 className="text-4xl font-bold mb-8">Welcome to My App</h1>
@@ -18,7 +20,6 @@ const LandingPage: React.FC = () => {
           </Button>
         </Link>
       </div>
-      <ToolList />
     </div>
   );
 };

@@ -6,6 +6,7 @@ const Button: React.FC<{
   children?: ReactNode;
   color?: "primary" | "secondary";
   size?: "small" | "medium" | "large";
+  onClick?: () => void;
 }> = ({
   type,
   disabled = false,
