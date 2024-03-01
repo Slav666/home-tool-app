@@ -9,8 +9,8 @@ import SingleTool from "./SingleTool";
 const ToolList: React.FC = () => {
   const tools = [
     { id: 1, name: "screwdriver", category: "test", location: "test" },
-    { id: 1, name: "torch", category: "", location: "test" },
-    { id: 1, name: "spanner", category: "test", location: "test" },
+    { id: 2, name: "torch", category: "", location: "test" },
+    { id: 3, name: "spanner", category: "test", location: "test" },
   ];
   // const dispatch = useDispatch();
   // const tools = useSelector((state: RootState) => state.tools.tools);
