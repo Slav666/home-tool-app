@@ -4,6 +4,8 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import CustomLabel from "@/components/Label";
 import Button from "@/components/Button";
+import axios from "axios";
+import { userAgent } from "next/server";
 
 const RegisterForm: React.FC = () => {
   return (
@@ -26,9 +28,17 @@ const RegisterForm: React.FC = () => {
           }
           return errors;
         }}
-        onSubmit={(values) => {
-          console.log(values);
-          // You can handle form submission here
+        onSubmit={(userData) => {
+          axios
+            .post("http://localhost:5000/register", userData)
+            .then((response) => {
+              console.log("Registration successful:", response.data);
+              // Handle successful registration (e.g., redirect user)
+            })
+            .catch((error) => {
+              console.error("Registration failed:", error);
+              // Handle registration error (e.g., display error message)
+            });
         }}
       >
         {({ isValid }) => (
