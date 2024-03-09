@@ -1,13 +1,8 @@
-import React, { ReactNode } from "react";
+import { IButton } from "@/type";
 
-const Button: React.FC<{
-  type: "button" | "submit" | "reset";
-  disabled?: boolean;
-  children?: ReactNode;
-  color?: "primary" | "secondary";
-  size?: "small" | "medium" | "large";
-  onClick?: () => void;
-}> = ({
+const Button: React.FC<
+  IButton
+> = ({
   type,
   disabled = false,
   color = "primary",

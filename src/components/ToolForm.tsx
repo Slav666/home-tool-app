@@ -1,40 +1,25 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { categories } from "@/utils";
 import CustomLabel from "@/components/Label";
 import Button from "@/components/Button";
-
-interface Tool {
-  id: number;
-  name: string;
-  category: string;
-  location: string;
-}
+import { ITool } from "@/type";
 
 interface ToolFormProps {
-  onSubmit: (tool: Tool) => void;
+  onSubmit: (tool: ITool) => void;
 }
 
 const ToolForm: React.FC<ToolFormProps> = ({ onSubmit }) => {
-  const initialValues: Tool = {
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
+
+  const initialValues: ITool = {
     id: 0, // I want to generate this automatically on form submission
     name: "",
     category: "",
     location: "",
   };
-
-  const categories: string[] = [
-    "Category 1",
-    "Category 2",
-    "Category 3",
-    "Category 4",
-    "Category 5",
-    "Category 6",
-    "Category 7",
-    "Category 8",
-    "Category 9",
-    "Category 10",
-  ];
 
   return (
     <Formik
@@ -44,7 +29,7 @@ const ToolForm: React.FC<ToolFormProps> = ({ onSubmit }) => {
         resetForm(); // Reset form after submission
       }}
       validate={(values) => {
-        const errors: Partial<Tool> = {};
+        const errors: Partial<ITool> = {};
         if (!values.name) {
           errors.name = "Required";
         }
@@ -65,14 +50,32 @@ const ToolForm: React.FC<ToolFormProps> = ({ onSubmit }) => {
         </div>
         <div>
           <CustomLabel htmlFor="category">Category:</CustomLabel>
-          <Field as="select" id="category" name="category">
+          <Field
+            as="select"
+            id="category"
+            name="category"
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) =>
+              setSelectedCategory(e.target.value)
+            }
+          >
             <option value="">Select a category</option>
             {categories.map((category) => (
-              <option key={category} value={category}>
-                {category}
+              <option key={category.name} value={category.name}>
+                {category.name}
               </option>
             ))}
           </Field>
+          {selectedCategory && (
+            <div className="mt-4 flex items-center">
+              <FontAwesomeIcon
+                icon={
+                  categories.find((cat) => cat.name === selectedCategory)?.icon
+                }
+                className="mr-2"
+              />
+              {selectedCategory}
+            </div>
+          )}
           <ErrorMessage
             name="category"
             component="div"
