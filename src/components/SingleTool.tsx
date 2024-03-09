@@ -1,8 +1,9 @@
 import React from "react";
 import Button from "./Button";
+import { ITool } from "@/type";
 
 const SingleTool: React.FC<{
-  tool: { id: number; name: string; category: string; location: string };
+  tool: ITool;
 }> = ({ tool }) => {
   return (
     <div className="border border-gray-300 p-4 mb-4 rounded">

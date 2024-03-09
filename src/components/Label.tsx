@@ -1,9 +1,7 @@
 import React, { ReactNode } from "react";
+import { ILabel } from "@/type";
 
-const CustomLabel: React.FC<{ htmlFor: string; children: ReactNode }> = ({
-  htmlFor,
-  children,
-}) => {
+const CustomLabel: React.FC<ILabel> = ({ htmlFor, children }) => {
   return (
     <label
       htmlFor={htmlFor}
