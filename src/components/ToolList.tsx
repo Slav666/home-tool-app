@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../app/store";
 import { Tool } from "../app/slices/toolsSlice";
 import SingleTool from "./SingleTool";
+import Button from "./Button";
 
 const ToolList: React.FC = () => {
   const tools = [
@@ -21,7 +22,11 @@ const ToolList: React.FC = () => {
 
   return (
     <div>
+      <Button type="button" destination="/add-new-tool">
+        Add new Tool
+      </Button>
       <h2>Tool List</h2>
+
       <ul>
         {tools.map((tool: Tool) => (
           <SingleTool key={tool.id} tool={tool} />

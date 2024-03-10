@@ -1,14 +1,17 @@
+"use client";
 import { IButton } from "@/type";
+import { useRouter } from "next/navigation";
 
-const Button: React.FC<
-  IButton
-> = ({
+const Button: React.FC<IButton> = ({
   type,
   disabled = false,
   color = "primary",
   size = "medium",
+  destination,
   children,
 }) => {
+  const router = useRouter();
+
   let buttonSizeClass = "py-2 px-4";
 
   if (size === "small") {
@@ -16,6 +19,12 @@ const Button: React.FC<
   } else if (size === "large") {
     buttonSizeClass = "py-3 px-6 text-lg";
   }
+
+  const handleClickDestination = () => {
+    if (destination) {
+      router.push(destination);
+    }
+  };
 
   return (
     <button
@@ -28,6 +37,7 @@ const Button: React.FC<
           ? "bg-indigo-600 hover:bg-indigo-700"
           : "bg-gray-500 hover:bg-gray-600"
       } text-white ${buttonSizeClass}`}
+      onClick={handleClickDestination}
     >
       {children}
     </button>

@@ -6,6 +6,7 @@ export interface IButton {
   children?: ReactNode;
   color?: "primary" | "secondary";
   size?: "small" | "medium" | "large";
+  destination?: string;
   onClick?: () => void;
 }
 
