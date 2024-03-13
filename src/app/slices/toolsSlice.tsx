@@ -7,6 +7,7 @@ export interface Tool {
   name: string;
   category: string;
   location: string;
+  icon: string;
 }
 
 interface ToolsState {
