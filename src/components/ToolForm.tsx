@@ -19,6 +19,7 @@ const ToolForm: React.FC<ToolFormProps> = ({ onSubmit }) => {
     name: "",
     category: "",
     location: "",
+    icon: "",
   };
 
   return (

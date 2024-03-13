@@ -4,10 +4,52 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import CustomLabel from "@/components/Label";
 import Button from "@/components/Button";
-import axios from "axios";
+import axios from "./api/axios";
 import { userAgent } from "next/server";
 
 const RegisterForm: React.FC = () => {
+  const REGISTER_URL = "/register";
+  const handleSubmit = async (e: any) => {
+    // e.preventDefault();
+    // if button enabled with JS hack
+    // const v1 = USER_REGEX.test(user);
+    // const v2 = PWD_REGEX.test(pwd);
+    // if (!v1 || !v2) {
+    //     setErrMsg("Invalid Entry");
+    //     return;
+    // }
+    try {
+      const response = await axios.post(REGISTER_URL, {
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true,
+      });
+      //     JSON.stringify({ user, pwd }),
+      //     {
+      //         headers: { 'Content-Type': 'application/json' },
+      //         withCredentials: true
+      //     }
+      // );
+      // console.log(response?.data);
+      // console.log(response?.accessToken);
+      // console.log(JSON.stringify(response))
+      // setSuccess(true);
+      //clear state and controlled inputs
+      //need value attrib on inputs for this
+      // setUser('');
+      // setPwd('');
+      // setMatchPwd('');
+    } catch (err) {
+      // if (!err?.response) {
+      //     setErrMsg('No Server Response');
+      // } else if (err.response?.status === 409) {
+      //     setErrMsg('Username Taken');
+      // } else {
+      //     setErrMsg('Registration Failed')
+      // }
+      // errRef.current.focus();
+    }
+  };
+
   return (
     <div className="max-w-md mx-auto my-8 p-6 bg-white rounded shadow-md">
       <h2 className="text-2xl font-semibold mb-6">Register</h2>
@@ -28,18 +70,19 @@ const RegisterForm: React.FC = () => {
           }
           return errors;
         }}
-        onSubmit={(userData) => {
-          axios
-            .post("http://localhost:5000/register", userData)
-            .then((response) => {
-              console.log("Registration successful:", response.data);
-              // Handle successful registration (e.g., redirect user)
-            })
-            .catch((error) => {
-              console.error("Registration failed:", error);
-              // Handle registration error (e.g., display error message)
-            });
-        }}
+        onSubmit={handleSubmit}
+        // onSubmit={(userData) => {
+        //   axios
+        //     .post("http://localhost:3500/register", userData)
+        //     .then((response) => {
+        //       console.log("Registration successful:", response.data);
+        //       // Handle successful registration (e.g., redirect user)
+        //     })
+        //     .catch((error) => {
+        //       console.error("Registration failed:", error);
+        //       // Handle registration error (e.g., display error message)
+        //     });
+        // }}
       >
         {({ isValid }) => (
           <Form>
